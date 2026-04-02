@@ -35,7 +35,8 @@ func main() {
 	fmt.Printf("  Data:       %s\n", dataDir)
 	fmt.Printf("  ─────────────────────────────────\n\n")
 
-	log.Printf("bellwether: listening on :%s", port)
+	srv.StartChecker()
+	log.Printf("bellwether: listening on :%s (checker active)", port)
 	if err := http.ListenAndServe(":"+port, srv); err != nil {
 		log.Fatalf("bellwether: %v", err)
 	}
